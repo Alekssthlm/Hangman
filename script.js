@@ -3,7 +3,7 @@ let hangman = ["O", "O\n|", "O\n/|", "O\n/|\\", "O\n/|\\\n/", "O HANGMAN!\n/|\\\
 //
 
 //Asks the manager of the game to pick a word for players to guess and store the word
-let word = prompt(`Welcome to Hangman! Pick a word for another person to guess:`);
+let word = prompt(`Welcome to Hangman! Pick a word for another person to guess:`).toLowerCase();
 let wordArray = [];     //empty array for storing each character of the picked word
 let spacesArray = [];   //empty array for storing underscores with the same length of the picked word to visualise guesses
 for (i=0; i < word.length; i++) {   //loop pushes each letter of the word into the wordArray in the right order, as well as underscores to spacesArray
@@ -20,7 +20,7 @@ let j = 0;            //variable used inside the while-loop below to display ind
 let guessArray = [];  //array that stores all guessed characters for visual aid for the player
  
 while (guessesLeft !== 0){   //loops as long as the player has guess attempts left
-  let guess = prompt(`Guess one letter or the whole word!\n Amount of guesses left: ${guessesLeft}\n Letters used: ${guessArray}\n Word: ${spacesArray}`);
+  let guess = prompt(`Guess one letter or the whole word!\n Amount of guesses left: ${guessesLeft}\n Letters used: ${guessArray}\n Word: ${spacesArray}`).toLowerCase();
   guessArray.push(guess);    //pushes the guessed letter or word to the array, will be shown to the player after the first loop
   if(guess === word){  //if player inputs a word that is the right guess, tell player they won, end loop by turning guesses left to 0 and switch boolean win to true
     alert(`You guessed the word ${word}!`);
